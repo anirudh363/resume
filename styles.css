@@ -1,6 +1,6 @@
 /* Global Styles */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', Arial, sans-serif; /* Added fallback fonts */
     margin: 0;
     padding: 0;
     background-color: #f4f6f8;
@@ -19,36 +19,26 @@ h2 {
 
 .resume-container {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 20px auto;
     padding: 20px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.page {
-    margin-bottom: 30px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-ul li {
-    margin-bottom: 5px;
-}
-
-ul li strong {
-    color: #2980b9;
-}
-
-/* Header */
+/* Header Styles */
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
+    flex-wrap: wrap; /* Responsive wrapping */
+    row-gap: 15px; /* Space between rows */
+}
+
+.profile-image {
+    flex: 0 0 100%; /* Full width on smaller screens */
+    text-align: center;
 }
 
 .profile-image img {
@@ -60,7 +50,7 @@ ul li strong {
 
 .contact-info {
     flex: 1;
-    text-align: right;
+    text-align: center; /* Centered alignment for smaller screens */
 }
 
 .contact-info h1 {
@@ -72,29 +62,69 @@ ul li strong {
 .contact-info p {
     font-size: 14px;
     color: #7f8c8d;
+    margin: 5px 0;
 }
 
 .icon-link {
-    text-decoration: none;
-    color: inherit;
-    margin-left: 10px;
+    display: inline-block;
+    margin: 5px 0;
 }
 
 .icon-link i {
     font-size: 20px;
     color: #2980b9;
+    margin-right: 5px; /* Space between icon and text */
 }
 
 .icon-link:hover i {
     color: #3498db;
 }
 
-/* Links */
-a {
-    color: #2980b9;
-    text-decoration: none;
+/* Responsive Design */
+@media (min-width: 768px) {
+    .header {
+        flex-wrap: nowrap; /* Prevent wrapping on larger screens */
+    }
+
+    .profile-image {
+        flex: 0 0 auto;
+    }
+
+    .contact-info {
+        text-align: right; /* Align right for larger screens */
+    }
 }
 
-a:hover {
-    text-decoration: underline;
+@media (max-width: 768px) {
+    .resume-container {
+        padding: 15px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-image img {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .resume-container {
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .contact-info p {
+        font-size: 12px;
+    }
+
+    .icon-link i {
+        font-size: 16px;
+    }
 }
